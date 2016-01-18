@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:layout_marginBottom="20dp"
+    android:layout_marginTop="20dp">
+
+    <TextView
+        android:id="@+id/listview_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="3"
+        android:textSize="24sp"
+        android:text="시간"/>
+
+    <TextView
+        android:id="@+id/listview_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="5"
+        android:textSize="24sp"
+        android:text="내용"/>
+
+    <TextView
+        android:id="@+id/listview_importance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textSize="24sp"
+        android:text="중요도"/>
+
+    <TextView
+        android:id="@+id/listview_urgency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textSize="24sp"
+        android:text="긴급성"/>
+
+</LinearLayout>
