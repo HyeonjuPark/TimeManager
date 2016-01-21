@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.tomboy.fragment.DayRecordFragment;
+import com.tomboy.fragment.HomeFragment;
 import com.tomboy.fragment.WeekStatisticFragment;
 
 public class TimeManagerActivity extends AppCompatActivity
@@ -22,6 +23,7 @@ public class TimeManagerActivity extends AppCompatActivity
 
     String[] menuItems = new String[]{"DayRecordFragment", "WeekStatisticFragment"};
 
+    HomeFragment fragHome;
     DayRecordFragment fragDayRecord;
     WeekStatisticFragment fragWeekStatistic;
 
@@ -50,12 +52,13 @@ public class TimeManagerActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        fragHome = new HomeFragment().newInstance();
         fragDayRecord = new DayRecordFragment().newInstance();
         fragWeekStatistic = new WeekStatisticFragment().newInstance();
 
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.fl_activity_main, fragDayRecord).commit();
+                .replace(R.id.fl_activity_main, fragHome).commit();
     }
 
     @Override
@@ -98,7 +101,12 @@ public class TimeManagerActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_timetable) {
+        if (id == R.id.nav_home){
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fl_activity_main, fragHome).commit();
+        }
+        if (id == R.id.nav_day_record) {
             getSupportFragmentManager()
                     .beginTransaction()
                     .replace(R.id.fl_activity_main, fragDayRecord).commit();
@@ -108,7 +116,7 @@ public class TimeManagerActivity extends AppCompatActivity
                     .replace(R.id.fl_activity_main, fragWeekStatistic).commit();
         } else if (id == R.id.nav_share) {
 
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_about) {
 
         }
 
