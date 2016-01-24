@@ -11,13 +11,50 @@ public class DayRecord {
     ArrayList<String> times;
     String time;
     String content;
-    String importance;
-    String urgency;
+    Boolean importance;
+    Boolean urgency;
+
+    DayRecord(){
+        importance = false;
+        urgency = false;
+    }
 
     DayRecord(int recordInterval){ //recordInterval unit: minutes
         times = new ArrayList<String>();
         for(int i=0; i< 24*60; i+=recordInterval){
             times.add("");
         }
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public Boolean getImportance() {
+        return importance;
+    }
+
+    public void setImportance(Boolean importance) {
+        this.importance = importance;
+    }
+
+    public Boolean getUrgency() {
+        return urgency;
+    }
+
+    public void setUrgency(Boolean urgency) {
+        this.urgency = urgency;
     }
 }
