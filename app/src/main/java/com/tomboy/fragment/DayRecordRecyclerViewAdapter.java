@@ -20,7 +20,7 @@ public class DayRecordRecyclerViewAdapter extends RecyclerView
         .Adapter<DayRecordRecyclerViewAdapter
         .DayRecordHolder>{
 
-    private static String LOG_TAG = "MyRecyclerViewAdapter";
+    private static String LOG_TAG = "DayRecordRecyclerViewAdapter";
     private ArrayList<DayRecord> mDataset;
     private static MyClickListener myClickListener;
 
@@ -28,15 +28,15 @@ public class DayRecordRecyclerViewAdapter extends RecyclerView
             implements View.OnClickListener {
         TextView time;
         TextView content;
-        Switch i_switch;
-        Switch u_switch;
+//        Switch i_switch;
+//        Switch u_switch;
 
         public DayRecordHolder(View itemView) {
             super(itemView);
             time = (TextView) itemView.findViewById(R.id.recyclerview_time);
             content = (TextView) itemView.findViewById(R.id.recyclerview_content);
-            i_switch = (Switch) itemView.findViewById(R.id.importance_switch);
-            u_switch = (Switch) itemView.findViewById(R.id.urgency_switch);
+//            i_switch = (Switch) itemView.findViewById(R.id.importance_switch);
+//            u_switch = (Switch) itemView.findViewById(R.id.urgency_switch);
             itemView.setOnClickListener(this);
         }
 
@@ -67,14 +67,14 @@ public class DayRecordRecyclerViewAdapter extends RecyclerView
     public void onBindViewHolder(DayRecordHolder holder, int position) {
         holder.time.setText(mDataset.get(position).getTime());
         holder.content.setText(mDataset.get(position).getContent());
-        if(mDataset.get(position).getImportance())
-            holder.i_switch.setChecked(true);
-        else
-            holder.i_switch.setChecked(false);
-        if(mDataset.get(position).getUrgency())
-            holder.u_switch.setChecked(true);
-        else
-            holder.u_switch.setChecked(false);
+//        if(mDataset.get(position).getImportance())
+//            holder.i_switch.setChecked(true);
+//        else
+//            holder.i_switch.setChecked(false);
+//        if(mDataset.get(position).getUrgency())
+//            holder.u_switch.setChecked(true);
+//        else
+//            holder.u_switch.setChecked(false);
     }
 
     public void addItem(DayRecord dataObj, int index) {

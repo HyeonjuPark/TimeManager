@@ -16,15 +16,19 @@ import android.view.MenuItem;
 
 import com.tomboy.fragment.DayRecordFragment;
 import com.tomboy.fragment.HomeFragment;
+import com.tomboy.fragment.TaskFragment;
 import com.tomboy.fragment.WeekStatisticFragment;
+import com.tomboy.fragment.dummy.DummyContent;
 
 public class TimeManagerActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener,
+        TaskFragment.OnListFragmentInteractionListener{
 
     String[] menuItems = new String[]{"DayRecordFragment", "WeekStatisticFragment"};
 
     HomeFragment fragHome;
     DayRecordFragment fragDayRecord;
+    TaskFragment fragTask;
     WeekStatisticFragment fragWeekStatistic;
 
     @Override
@@ -34,15 +38,15 @@ public class TimeManagerActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
+//
+//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+//            }
+//        });
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -54,6 +58,7 @@ public class TimeManagerActivity extends AppCompatActivity
 
         fragHome = new HomeFragment().newInstance();
         fragDayRecord = new DayRecordFragment().newInstance();
+        fragTask = new TaskFragment().newInstance();
         fragWeekStatistic = new WeekStatisticFragment().newInstance();
 
         getSupportFragmentManager()
@@ -110,6 +115,14 @@ public class TimeManagerActivity extends AppCompatActivity
             getSupportFragmentManager()
                     .beginTransaction()
                     .replace(R.id.fl_activity_main, fragDayRecord).commit();
+        } else if(id == R.id.nav_task){
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fl_activity_main, fragTask).commit();
+        } else if(id == R.id.nav_label){
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fl_activity_main, fragDayRecord).commit();
         } else if (id == R.id.nav_statistics){
             getSupportFragmentManager()
                     .beginTransaction()
@@ -123,5 +136,10 @@ public class TimeManagerActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onListFragmentInteraction(DummyContent.DummyItem item) {
+
     }
 }
