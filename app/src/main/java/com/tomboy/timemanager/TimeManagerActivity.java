@@ -38,15 +38,6 @@ public class TimeManagerActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-//
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -63,7 +54,7 @@ public class TimeManagerActivity extends AppCompatActivity
 
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.fl_activity_main, fragHome).commit();
+                .replace(R.id.fl_activity_main, fragDayRecord).commit();
     }
 
     @Override
@@ -106,11 +97,11 @@ public class TimeManagerActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_home){
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.fl_activity_main, fragHome).commit();
-        }
+//        if (id == R.id.nav_home){
+//            getSupportFragmentManager()
+//                    .beginTransaction()
+//                    .replace(R.id.fl_activity_main, fragHome).commit();
+//        }
         if (id == R.id.nav_day_record) {
             getSupportFragmentManager()
                     .beginTransaction()
